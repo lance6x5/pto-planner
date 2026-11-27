@@ -11,6 +11,7 @@ import DataView from './components/DataView.jsx';
 import ShareImport from './components/ShareImport.jsx';
 import Feedback from './components/Feedback.jsx';
 import VisitCounter from './components/VisitCounter.jsx';
+import StudioCredit from './components/StudioCredit.jsx';
 import { APP_VERSION } from './lib/feedback.js';
 
 const NAV = [
@@ -209,6 +210,7 @@ export default function App() {
         <p>Your plan data stays in this browser; the only outside request is an anonymous visit count. Use Profiles &amp; data to export a backup.</p>
         <p className="app-version">Bridgewise v{APP_VERSION}</p>
         <VisitCounter />
+        <StudioCredit />
       </footer>
     </div>
   );

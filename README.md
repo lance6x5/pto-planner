@@ -6,6 +6,10 @@
 
 ![Visits](https://abacus.jasoncameron.dev/get/lance6x5.github.io/pto-planner/shield)
 
+A **Silverlight DevTech** project · © 2026 Silverlight DevTech. Source-available under the [PolyForm Noncommercial License 1.0.0](LICENSE.md).
+
+More apps: https://lance6x5.github.io/
+
 Bridgewise (repo: `pto-planner`) helps you get the most consecutive days off by combining weekends, company holidays, and your PTO balance.
 It runs entirely in your browser (React + Vite) and is hosted on GitHub Pages. There is no backend.
 
@@ -88,3 +92,17 @@ tests/          Vitest unit tests (algorithm, parsing, observed holidays, ics, s
 ## How the algorithm works
 
 Every day in the year, plus about 12 days of padding on each side, is marked as either *free* (a non-working weekday, a holiday, or PTO you've already accepted) or a *workday*. A candidate break is a maximal run of days in which every workday is covered by PTO. PTO can only be booked on workdays inside the selected year that aren't blacked out. Candidates are then filtered and ranked by strategy, and picked greedily (long weekends) or as the best single break or pair (big vacations), so that the picks don't overlap and stay within budget.
+
+## License
+
+Bridgewise is **source-available**, not open source in the OSI sense. It is licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE.md) (SPDX: `PolyForm-Noncommercial-1.0.0`).
+
+- **Free for noncommercial use:** personal, educational, research, nonprofit and other noncommercial use is allowed under the license terms.
+- **Commercial use needs a separate license:** this includes selling it, hosting it as a paid service, or using it inside a business product. Commercial licenses are available from Silverlight DevTech; to ask, open a [GitHub issue on this repo](https://github.com/lance6x5/pto-planner/issues).
+- **Redistribution:** anyone who shares a copy must keep [LICENSE.md](LICENSE.md) and its `Required Notice:` line.
+
+Third-party dependencies keep their own licenses.
+
+## Trademarks
+
+Bridgewise and its logo are trademarks of Silverlight DevTech. The license covers the code only, not the names or logos, so forks must use a different name and logo.
