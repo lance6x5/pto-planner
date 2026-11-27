@@ -1,0 +1,56 @@
+# PTO Planner
+
+Get the most consecutive days off by combining weekends, company holidays, and your PTO balance.
+It runs entirely in your browser (React + Vite) and is hosted on GitHub Pages. There is no backend.
+
+**Live app:** https://lance6x5.github.io/pto-planner/
+
+## Features
+
+- **Inputs:** year, PTO balance (half days allowed, e.g. 12.5), workweek (Mon–Fri by default, or custom such as Sun–Thu), company holidays, blackout dates, and must-include dates.
+- **Holidays:** add or remove them by hand, paste a list (one per line, in any common date format), import a CSV (`date,name`), or add the US federal holidays in one click.
+- **"Observed on nearest workday" toggle:** for holidays that land on a non-working day.
+- **Suggestion engine:** ranks breaks by date range, total days off, PTO used, and efficiency (days off ÷ PTO).
+  - *Fewest PTO for long weekends:* finds bridge days around holidays and weekends.
+  - *One or two big vacations:* finds the longest single break, or the best pair of breaks.
+  - Must-include dates are covered first. Recommended picks never add up to more than the remaining balance.
+  - Breaks can cross a year boundary (Dec 31 → Jan 1). Leap years are handled.
+- **Full-year calendar:** color-coded for weekends, holidays, suggested PTO, accepted PTO, half days, blackout dates, and must-include dates. Clicking a suggestion highlights it on the calendar. A "click action" brush lets you paint holidays, blackout dates, must-include dates, or full/half PTO days onto the calendar.
+- **Accept / Dismiss** on each suggestion. The summary panel updates live: total days off, PTO used, PTO remaining, and longest break.
+- **Profiles:** save named calendar profiles (e.g. "UHG 2027", "Spouse's company 2027") in IndexedDB.
+- **Sharing:** share a profile's holiday list as a URL. The list is compressed with lz-string into the hash (`#/share/...`), so nothing is uploaded.
+- **Export:** download the accepted plan as an `.ics` file for Outlook or Google Calendar.
+- **Backup:** JSON export/import of all profiles (merge or replace), plus "Reset all data" with a confirmation step.
+- **Installable PWA:** works offline. Supports light and dark mode, works on phones and desktops, and the calendar can be used from the keyboard (arrow keys, PageUp/PageDown, Home/End).
+
+## Local development
+
+```bash
+npm install
+npm run dev      # start the dev server at http://localhost:5173/pto-planner/
+npm test         # run the Vitest unit tests once
+npm run build    # production build into dist/
+npm run preview  # serve the production build locally
+```
+
+## Deployment (GitHub Pages)
+
+`.github/workflows/deploy.yml` runs on every push to `main` and can also be started by hand (workflow_dispatch). It installs dependencies, runs the tests, builds the app, and deploys it using `actions/configure-pages`, `actions/upload-pages-artifact`, and `actions/deploy-pages`.
+
+**One-time setup:** Repo Settings → Pages → Source: **"GitHub Actions"**.
+
+If you fork the repo under a different name, change `base` in `vite.config.js` (and `start_url`/`scope` in the PWA manifest) to `/<your-repo-name>/`.
+
+## Project structure
+
+```
+src/
+  lib/          pure logic: dates, holidays, planner (algorithm), ics, share, profile, storage
+  components/   React views: PlanView, Calendar, Suggestions, Summary, SetupView, DataView, ShareImport
+  App.jsx       state + hash routing (#/plan, #/setup, #/data, #/share/<code>)
+tests/          Vitest unit tests (algorithm, parsing, observed holidays, ics, share)
+```
+
+## How the algorithm works
+
+Every day in the year, plus about 12 days of padding on each side, is marked as either *free* (a non-working weekday, a holiday, or PTO you've already accepted) or a *workday*. A candidate break is a maximal run of days in which every workday is covered by PTO. PTO can only be booked on workdays inside the selected year that aren't blacked out. Candidates are then filtered and ranked by strategy, and picked greedily (long weekends) or as the best single break or pair (big vacations), so that the picks don't overlap and stay within budget.
