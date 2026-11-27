@@ -1,0 +1,46 @@
+name: Bug report
+description: Something in Bridgewise isn't working as expected.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! Please don't include personal data (names, real PTO dates, company details).
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. See ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      description: Shown in the app footer, e.g. 1.1.0.
+      placeholder: "1.1.0"
+  - type: input
+    id: environment
+    attributes:
+      label: Browser / OS
+      placeholder: "Chrome 131 on Windows 11"
+  - type: textarea
+    id: notes
+    attributes:
+      label: Screenshots / notes
+      description: Drag images here. Please blur any personal data.

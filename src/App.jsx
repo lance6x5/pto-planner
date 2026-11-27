@@ -9,6 +9,8 @@ import PlanView from './components/PlanView.jsx';
 import SetupView from './components/SetupView.jsx';
 import DataView from './components/DataView.jsx';
 import ShareImport from './components/ShareImport.jsx';
+import Feedback from './components/Feedback.jsx';
+import { APP_VERSION } from './lib/feedback.js';
 
 const NAV = [
   { route: 'plan', label: 'Plan' },
@@ -143,8 +145,11 @@ export default function App() {
       </a>
       <header className="app-header">
         <div className="brand">
-          <img src={`${import.meta.env.BASE_URL}icon.svg`} alt="" width="32" height="32" />
-          <h1>PTO Planner</h1>
+          <img src={`${import.meta.env.BASE_URL}icon.svg`} alt="" width="36" height="36" />
+          <div>
+            <h1>Bridgewise</h1>
+            <p className="tagline">Bridge the gaps. Maximize your time off.</p>
+          </div>
         </div>
         {profiles.length > 0 && (
           <label className="profile-switch">
@@ -199,7 +204,9 @@ export default function App() {
         {status}
       </div>
       <footer className="app-footer">
+        <Feedback />
         <p>Your data stays in this browser. Use Profiles &amp; data to export a backup.</p>
+        <p className="app-version">Bridgewise v{APP_VERSION}</p>
       </footer>
     </div>
   );

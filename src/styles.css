@@ -1,11 +1,14 @@
 /* Theme tokens: light by default, dark via prefers-color-scheme. */
 :root {
-  --bg: #f6f7fb;
+  --bg: #f4f8f7;
   --surface: #ffffff;
   --text: #1a1f2b;
   --muted: #5a6275;
   --border: #d5d9e2;
-  --primary: #1d4ed8;
+  /* Bridgewise brand: deep teal + sunrise amber */
+  --brand: #0f766e;
+  --brand-accent: #fbbf24;
+  --primary: #0f766e;
   --primary-contrast: #ffffff;
   --focus: #f59e0b;
   --danger: #b91c1c;
@@ -18,9 +21,9 @@
   --c-holiday-text: #0d4a22;
   --c-suggested: #fde68a;
   --c-suggested-text: #5c3d00;
-  --c-accepted: #1d4ed8;
+  --c-accepted: #0f766e;
   --c-accepted-text: #ffffff;
-  --c-half: #93c5fd;
+  --c-half: #99f6e4;
   --c-blackout: #fecaca;
   --c-blackout-text: #7f1d1d;
   --c-must: #7c3aed;
@@ -33,13 +36,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0f1218;
+    --bg: #0d1414;
     --surface: #181c25;
     --text: #e8ebf2;
     --muted: #a3abbd;
     --border: #2f3646;
-    --primary: #6b9bff;
-    --primary-contrast: #0b1020;
+    --brand: #2dd4bf;
+    --primary: #2dd4bf;
+    --primary-contrast: #042f2e;
     --danger: #f87171;
     --warn-bg: #3a2e10;
     --warn-text: #fde68a;
@@ -49,9 +53,9 @@
     --c-holiday-text: #d7f5e0;
     --c-suggested: #8a6a12;
     --c-suggested-text: #fff6d6;
-    --c-accepted: #6b9bff;
-    --c-accepted-text: #0b1020;
-    --c-half: #2f4f86;
+    --c-accepted: #2dd4bf;
+    --c-accepted-text: #042f2e;
+    --c-half: #115e59;
     --c-blackout: #6b2222;
     --c-blackout-text: #ffe1e1;
     --c-must: #b794ff;
@@ -119,7 +123,8 @@ a { color: var(--primary); }
   padding: 0.75rem 0;
 }
 .brand { display: flex; align-items: center; gap: 0.5rem; margin-right: auto; }
-.brand h1 { margin: 0; }
+.brand h1 { margin: 0; color: var(--brand); letter-spacing: -0.01em; }
+.brand .tagline { margin: 0; font-size: 0.8rem; color: var(--muted); }
 .app-header nav ul { list-style: none; display: flex; gap: 0.25rem; padding: 0; margin: 0; flex-wrap: wrap; }
 .app-header nav a {
   display: inline-block;
@@ -343,3 +348,9 @@ details summary { cursor: pointer; margin: 0.5rem 0; font-weight: 600; }
 .toast { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); max-width: calc(100% - 2rem); z-index: 20; }
 .toast:not(:empty) { background: var(--text); color: var(--bg); padding: 0.6rem 1rem; border-radius: 8px; box-shadow: var(--shadow); }
 .app-footer { color: var(--muted); font-size: 0.8rem; text-align: center; }
+.app-footer .app-version { font-variant-numeric: tabular-nums; }
+.feedback { margin: 1rem auto 0.5rem; }
+.feedback-heading { font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--text); }
+.feedback-actions { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; padding: 0; margin: 0; }
+.feedback-actions .btn { text-decoration: none; color: var(--text); }
+.feedback-note { margin: 0.4rem 0 0; }

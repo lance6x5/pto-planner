@@ -1,6 +1,10 @@
-# PTO Planner
+<p align="center"><img src="public/logo.svg" alt="Bridgewise logo" width="480"></p>
 
-Get the most consecutive days off by combining weekends, company holidays, and your PTO balance.
+# Bridgewise
+
+**Bridge the gaps. Maximize your time off.**
+
+Bridgewise (repo: `pto-planner`) helps you get the most consecutive days off by combining weekends, company holidays, and your PTO balance.
 It runs entirely in your browser (React + Vite) and is hosted on GitHub Pages. There is no backend.
 
 **Live app:** https://lance6x5.github.io/pto-planner/
@@ -22,6 +26,25 @@ It runs entirely in your browser (React + Vite) and is hosted on GitHub Pages. T
 - **Export:** download the accepted plan as an `.ics` file for Outlook or Google Calendar.
 - **Backup:** JSON export/import of all profiles (merge or replace), plus "Reset all data" with a confirmation step.
 - **Installable PWA:** works offline. Supports light and dark mode, works on phones and desktops, and the calendar can be used from the keyboard (arrow keys, PageUp/PageDown, Home/End).
+
+## Feedback & issues
+
+Found a bug or have an idea? Use the **Feedback** links in the app footer, or go to the [Issues page](https://github.com/lance6x5/pto-planner/issues):
+
+- [Report a bug](https://github.com/lance6x5/pto-planner/issues/new?template=bug_report.yml)
+- [Request a feature](https://github.com/lance6x5/pto-planner/issues/new?template=feature_request.yml)
+
+The in-app links open a pre-filled GitHub issue form (app version and browser only, never your plan data). A free GitHub account is required. See [CONTRIBUTING.md](CONTRIBUTING.md) for how issues are triaged.
+
+## Versioning
+
+Bridgewise follows [Semantic Versioning](https://semver.org/):
+
+- **MAJOR**: breaking data/schema change (e.g. saved profiles or backups need migration).
+- **MINOR**: new features.
+- **PATCH**: bug fixes.
+
+The current version is shown in the app footer. All changes are listed in [CHANGELOG.md](CHANGELOG.md).
 
 ## Local development
 

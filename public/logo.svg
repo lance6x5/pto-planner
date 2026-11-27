@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 300" role="img" aria-label="Bridgewise">
+  <title>Bridgewise</title>
+  <g transform="translate(22 22) scale(0.5)"><rect width="512" height="512" rx="112" fill="#0f766e"/><circle cx="256" cy="262" r="66" fill="#fbbf24"/><path d="M176 258V336M336 258V336" stroke="#ccfbf1" stroke-width="14" stroke-linecap="round"/><path d="M96 340 Q256 120 416 340" fill="none" stroke="#ffffff" stroke-width="28" stroke-linecap="round"/><rect x="64" y="328" width="384" height="28" rx="14" fill="#ffffff"/><rect x="140" y="390" width="232" height="16" rx="8" fill="#5eead4"/><rect x="196" y="424" width="120" height="16" rx="8" fill="#5eead4"/></g>
+  <text x="320" y="170" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="128" font-weight="700" fill="#0f766e" letter-spacing="-2">Bridgewise</text>
+  <text x="324" y="236" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="40" fill="#5a6275">Bridge the gaps. Maximize your time off.</text>
+</svg>
