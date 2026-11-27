@@ -206,7 +206,7 @@ export default function App() {
       </div>
       <footer className="app-footer">
         <Feedback />
-        <p>Your data stays in this browser. Use Profiles &amp; data to export a backup.</p>
+        <p>Your plan data stays in this browser; the only outside request is an anonymous visit count. Use Profiles &amp; data to export a backup.</p>
         <p className="app-version">Bridgewise v{APP_VERSION}</p>
         <VisitCounter />
       </footer>
