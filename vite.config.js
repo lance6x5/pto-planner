@@ -34,7 +34,14 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,webmanifest}'],
-        navigateFallback: 'index.html'
+        navigateFallback: 'index.html',
+        // Never cache the anonymous visit counter (cross-origin, see src/lib/visits.js).
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.origin === 'https://abacus.jasoncameron.dev',
+            handler: 'NetworkOnly'
+          }
+        ]
       }
     })
   ],

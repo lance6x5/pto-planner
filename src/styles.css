@@ -349,6 +349,7 @@ details summary { cursor: pointer; margin: 0.5rem 0; font-weight: 600; }
 .toast:not(:empty) { background: var(--text); color: var(--bg); padding: 0.6rem 1rem; border-radius: 8px; box-shadow: var(--shadow); }
 .app-footer { color: var(--muted); font-size: 0.8rem; text-align: center; }
 .app-footer .app-version { font-variant-numeric: tabular-nums; }
+.app-footer .visit-count { margin-top: 0; font-size: 0.75rem; font-variant-numeric: tabular-nums; }
 .feedback { margin: 1rem auto 0.5rem; }
 .feedback-heading { font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--text); }
 .feedback-actions { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; padding: 0; margin: 0; }

@@ -10,6 +10,7 @@ import SetupView from './components/SetupView.jsx';
 import DataView from './components/DataView.jsx';
 import ShareImport from './components/ShareImport.jsx';
 import Feedback from './components/Feedback.jsx';
+import VisitCounter from './components/VisitCounter.jsx';
 import { APP_VERSION } from './lib/feedback.js';
 
 const NAV = [
@@ -207,6 +208,7 @@ export default function App() {
         <Feedback />
         <p>Your data stays in this browser. Use Profiles &amp; data to export a backup.</p>
         <p className="app-version">Bridgewise v{APP_VERSION}</p>
+        <VisitCounter />
       </footer>
     </div>
   );

@@ -4,6 +4,8 @@
 
 **Bridge the gaps. Maximize your time off.**
 
+![Visits](https://abacus.jasoncameron.dev/get/lance6x5.github.io/pto-planner/shield)
+
 Bridgewise (repo: `pto-planner`) helps you get the most consecutive days off by combining weekends, company holidays, and your PTO balance.
 It runs entirely in your browser (React + Vite) and is hosted on GitHub Pages. There is no backend.
 
@@ -35,6 +37,15 @@ Found a bug or have an idea? Use the **Feedback** links in the app footer, or go
 - [Request a feature](https://github.com/lance6x5/pto-planner/issues/new?template=feature_request.yml)
 
 The in-app links open a pre-filled GitHub issue form (app version and browser only, never your plan data). A free GitHub account is required. See [CONTRIBUTING.md](CONTRIBUTING.md) for how issues are triaged.
+
+## Privacy & analytics
+
+Your plans, profiles and dates never leave your browser. The only analytics is an anonymous visit counter shown in the app footer:
+
+- One anonymous page-load count per browser session, via the open-source [Abacus](https://github.com/JasonLovesDoggo/abacus) counter. Later loads in the same session only read the total.
+- No cookies, and no personal or app data is sent or stored. [Do Not Track](https://developer.mozilla.org/docs/Web/HTTP/Headers/DNT) and [Global Privacy Control](https://globalprivacycontrol.org/) are respected (nothing is counted), and local development is never counted.
+- Like any web request, the call reveals your IP address to the counter service.
+- The count is approximate (it includes bots and is not unique visitors) and public (see the badge above).
 
 ## Versioning
 
@@ -71,7 +82,7 @@ src/
   lib/          pure logic: dates, holidays, planner (algorithm), ics, share, profile, storage
   components/   React views: PlanView, Calendar, Suggestions, Summary, SetupView, DataView, ShareImport
   App.jsx       state + hash routing (#/plan, #/setup, #/data, #/share/<code>)
-tests/          Vitest unit tests (algorithm, parsing, observed holidays, ics, share)
+tests/          Vitest unit tests (algorithm, parsing, observed holidays, ics, share, feedback, visits)
 ```
 
 ## How the algorithm works

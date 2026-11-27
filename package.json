@@ -1,7 +1,7 @@
 {
   "name": "pto-planner",
   "private": true,
-  "version": "1.1.1",
+  "version": "1.2.0",
   "type": "module",
   "description": "Plan PTO around weekends and holidays to maximize consecutive days off.",
   "scripts": {

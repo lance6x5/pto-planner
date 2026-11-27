@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-11-27
+
+### Added
+- Anonymous visit counter in the app footer (e.g. "12,345 visits"), powered by the open-source [Abacus](https://github.com/JasonLovesDoggo/abacus) counter (`src/lib/visits.js`). Counts one page load per browser session (later loads only read the total), sends no cookies or app data, is skipped on localhost and when Do Not Track / Global Privacy Control is on, times out after 4 seconds, and shows nothing if the counter is unavailable.
+- The PWA service worker never caches counter requests (Workbox `NetworkOnly` rule).
+- Visits badge and a "Privacy & analytics" section in the README.
+- Unit tests for the visit counter.
+
 ## [1.1.1] - 2026-11-27
 
 ### Fixed
@@ -36,7 +44,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Offline support, light and dark mode, responsive layout.
 - GitHub Actions workflow that tests, builds and deploys to GitHub Pages.
 
-[Unreleased]: https://github.com/lance6x5/pto-planner/compare/v1.1.1...HEAD
+[Unreleased]: https://github.com/lance6x5/pto-planner/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/lance6x5/pto-planner/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/lance6x5/pto-planner/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/lance6x5/pto-planner/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/lance6x5/pto-planner/releases/tag/v1.0.0
