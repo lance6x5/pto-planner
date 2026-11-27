@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-11-27
+
+### Fixed
+- Replaced leftover "PTO Planner" branding with "Bridgewise" in the `.ics` calendar export (`PRODID:-//Bridgewise//EN`), the backup-import error message, and the JSON backup filename (`bridgewise-backup-YYYY-MM-DD.json`). Internal storage keys are unchanged, so saved data is kept, and backups from earlier versions still import.
+- `public/logo.svg` wordmark and tagline are now readable on dark backgrounds (e.g. GitHub dark mode) via a `prefers-color-scheme: dark` style inside the SVG.
+
 ## [1.1.0] - 2026-11-27
 
 ### Added
@@ -30,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Offline support, light and dark mode, responsive layout.
 - GitHub Actions workflow that tests, builds and deploys to GitHub Pages.
 
-[Unreleased]: https://github.com/lance6x5/pto-planner/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/lance6x5/pto-planner/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/lance6x5/pto-planner/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/lance6x5/pto-planner/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/lance6x5/pto-planner/releases/tag/v1.0.0

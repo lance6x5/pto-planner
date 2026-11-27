@@ -46,7 +46,7 @@ export default function DataView({ profiles, profile, setActiveId, addProfile, r
   };
 
   const exportJson = () => {
-    downloadFile(`pto-planner-backup-${new Date().toISOString().slice(0, 10)}.json`, buildBackup(profiles));
+    downloadFile(`bridgewise-backup-${new Date().toISOString().slice(0, 10)}.json`, buildBackup(profiles));
   };
 
   const importJson = async (e) => {

@@ -98,6 +98,8 @@ describe('ics export', () => {
       new Date('2027-01-01T00:00:00Z')
     );
     expect(ics).toContain('BEGIN:VCALENDAR');
+    expect(ics).toContain('PRODID:-//Bridgewise//EN');
+    expect(ics).not.toContain('PTO Planner');
     expect(ics).toContain('DTSTART;VALUE=DATE:20271125');
     expect(ics).toContain('DTEND;VALUE=DATE:20271129');
     expect(ics).toContain('\r\n');
@@ -119,6 +121,14 @@ describe('share + backup', () => {
     expect(p.workdays).toEqual([1, 2]);
     const restored = parseBackup(buildBackup([p]));
     expect(restored[0]).toEqual(p);
-    expect(() => parseBackup('{"foo":1}')).toThrow();
+    expect(() => parseBackup('{"foo":1}')).toThrow('File does not look like a Bridgewise backup.');
+  });
+
+  it('still imports backups made by earlier versions', () => {
+    const legacy = JSON.stringify({ app: 'pto-planner', version: 1, exportedAt: '2026-11-01T00:00:00.000Z', profiles: [{ name: 'Old', year: 2027, balance: 5 }] });
+    const restored = parseBackup(legacy);
+    expect(restored).toHaveLength(1);
+    expect(restored[0].name).toBe('Old');
+    expect(restored[0].balance).toBe(5);
   });
 });

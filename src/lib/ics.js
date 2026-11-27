@@ -34,7 +34,7 @@ function hash(str) {
  */
 export function buildICS(accepted, profileName = 'PTO Plan', now = new Date()) {
   const stamp = now.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//PTO Planner//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH'];
+  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Bridgewise//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH'];
   const sorted = [...accepted].sort((a, b) => a.start.localeCompare(b.start));
   for (const a of sorted) {
     const isHalf = (a.halfDates || []).length > 0;

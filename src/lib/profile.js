@@ -77,7 +77,7 @@ export function normalizeProfile(p = {}) {
 export function parseBackup(json) {
   const data = typeof json === 'string' ? JSON.parse(json) : json;
   const list = Array.isArray(data) ? data : data && Array.isArray(data.profiles) ? data.profiles : null;
-  if (!list) throw new Error('File does not look like a PTO Planner export.');
+  if (!list) throw new Error('File does not look like a Bridgewise backup.');
   return list.map(normalizeProfile);
 }
 
